@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+.click{
+  border-radius: 10px;
+  background-color: rgb(229, 233, 236);
+
+}
+.weather{
+  padding: 10px;
+}
+.select{
+  background-color: rgb(240, 236, 236);
+  
+  border-radius: 8px;
+  height: 70px;
+  width: 300px;
+  font-size:x-large;
+  margin: 30px ;
+  text-align: center;
+  
+}
+
