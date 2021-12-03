@@ -1,95 +1,35 @@
 import { useContext } from 'react'
-
-import { WeatherContext } from './WeatherData'
-import './img'
-
-
+import { WeatherContext } from '../contexts/WeatherData'
 
 function Card() {
 
-    const weather=useContext(WeatherContext)
-    const arrDay=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-    const d = new Date();
-let day = d.getDay();
-const findDay=(day)=>{
-    
-       return (day>=arrDay.length) ? <h5>{arrDay[day-7]} </h5>: <h5>{arrDay[day]} </h5>;
-    
-}
+    const {weather, maxTemp, minTemp, country}=useContext(WeatherContext)
 
+    const arrDay=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
+    const d = new Date();
+    let day = d.getDay();// güncel günü getDate ve getDay ile alma
+    const findDay=(day)=>{
+        return day>=arrDay.length ? <h5>{arrDay[day-7]}</h5> : <h5>{arrDay[day]}</h5> ;
+    }
+  
+   
     return (
-        <div>
-            <div className="card-group ">
-            <div className="click weather">
-            {findDay(day)}
-            
-            <img src={require('./img/Rain.png')} className="card-img-top" alt="..."/> <br/>
-        {weather}
-               
-                <div className="card-body">
-                
-                <p className="card-text">dsffdfsfds</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+        
+            <div>
+                <h2 className="selectText">Weather Forecast</h2>
+                <div className="cardClick ">
+                        {findDay(day)}
+                        <img src={`/img/${weather}.png`} className="card-img-top" alt="..."/>
+                        <h5 className="card-title">{weather}</h5>
+                    <div class=" row">
+                        <div class=" col">Max Temperature {parseInt(maxTemp-272.15)} </div>
+                        <div class=" col">Min Temperature {parseInt(minTemp-272.15)} </div>
+                    </div><br/>
+                    <p className="selectText" >Country {country}</p>
                 </div>
             </div>
-            <div className="weather"  >
-            {findDay(day+1)}
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                
-                <p className="card-text"> lead-in to additional content.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            
-            <div className="weather"  >
-            {findDay(day+2)}
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                
-                <p className="card-text">lead-in to additional content.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div className="weather"  >
-            {findDay(day+3)}
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                
-                <p className="card-text">nt is a little bit longer.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div className="weather"  >
-            {findDay(day+4)}
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                
-                <p className="card-text">T little bit longer.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div className="weather"  >
-            {findDay(day+5)}
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                
-                <p className="card-text"> bit longer.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div className="weather"  >
-            {findDay(day+6)}
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                
-                <p className="card-text"> bit longer.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            </div>
-        </div>
+       
     )
 }
-
 export default Card

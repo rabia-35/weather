@@ -1,4 +1,4 @@
-import  { WeatherProvider } from './components/WeatherData';
+import  { WeatherProvider } from './contexts/WeatherData'
 import Card from './components/Card';
 import './App.css';
 import { CityProvider } from './contexts/City';
@@ -11,10 +11,10 @@ function App() {
       <CityProvider>
         <WeatherProvider>
         <Select />
-        <br/>
         <Card />
         </WeatherProvider>
       </CityProvider>
+      
     </div>
   );
 }

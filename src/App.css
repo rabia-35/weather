@@ -1,23 +1,43 @@
 .App {
   text-align: center;
 }
-.click{
-  border-radius: 10px;
-  background-color: rgb(229, 233, 236);
 
-}
-.weather{
-  padding: 10px;
-}
 .select{
-  background-color: rgb(240, 236, 236);
-  
+  background-color: rgb(223, 216, 216);
   border-radius: 8px;
   height: 70px;
-  width: 300px;
+  width: 600px;
   font-size:x-large;
   margin: 30px ;
   text-align: center;
-  
+  margin-left: 34%; 
+}
+.selectArea{
+  background-color: rgb(241, 193, 71);
+}
+.selectText{
+  text-align: center;
+  text-decoration-line:underline ;
 }
 
+
+.cardClick{
+  background-color: rgb(128, 185, 230);
+  border-radius: 10px;
+  text-align: center;
+  width: 20%;
+  height: 590px;
+  padding: 10px;
+  margin: 0% 40%
+}
+.btn{
+  border-radius: 8px;
+  background-color: rgb(223, 216, 216);
+  height: 45px;
+  padding-top: 5px;
+}
+.span{
+  margin-left: 70px;
+  font-style: italic;
+  font-weight: bold ;
+}
