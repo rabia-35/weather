@@ -1,5 +1,5 @@
 # react-weather-project
-React Weather Projesi
+ Bir günlük hava durumu raporu
 
  ## Proje Görseli
  ![](/public/img/projeGörseli.png)
