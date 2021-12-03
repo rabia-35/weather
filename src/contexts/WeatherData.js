@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { CityContext } from './City'
 import { createContext } from 'react'
 import axios from 'axios'
+
  export const WeatherContext=createContext();
 
 export const  WeatherProvider=({ children })=> {
@@ -17,8 +18,7 @@ export const  WeatherProvider=({ children })=> {
             setMaxTemp(data.data.main.temp_max);
             setMinTemp(data.data.main.temp_min);
             setCountry(data.data.sys.country);
-            
-    });
+            });
     }, [city]) // Openweather'dan city state bağlı olarak weather(description),temp_max,temp_min ve country datalarını çekme
    
     const values={
