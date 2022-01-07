@@ -5,10 +5,10 @@ function Select() {
     const {city, setCity}= useContext(CityContext)// city.js dosyasından city setCity değerlerini çekme
 
     return (
-        <div className="selectArea">
+        <div >
             
-            <input placeholder="şehir ismi yazın" className="select" name="city" value={city} onChange={(e)=>setCity(e.target.value)}/>
-            <button className="btn">search city</button>
+            <input  className="input" name="city" value={city} onChange={(e)=>setCity(e.target.value)}/>
+        
             
         </div>
     )

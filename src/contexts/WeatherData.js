@@ -1,36 +1,78 @@
 import { useContext, useEffect, useState } from 'react'
 import { CityContext } from './City'
-import { createContext } from 'react'
 import axios from 'axios'
 
- export const WeatherContext=createContext();
 
-export const  WeatherProvider=({ children })=> {
+export const  Weather=()=> {
     const {city}=useContext(CityContext) // City.js dosyasından city state çekme
-    const [weather, setWeather]=useState() 
-    const [maxTemp, setMaxTemp]=useState() 
-    const [minTemp, setMinTemp]=useState()
-    const [country, setCountry]=useState()
-
-    useEffect(() => {
-        axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=91a58151e7f031bbef14002c854f771a`).then(data=>{ 
-            setWeather(data.data.weather[0].description);
-            setMaxTemp(data.data.main.temp_max);
-            setMinTemp(data.data.main.temp_min);
-            setCountry(data.data.sys.country);
-            });
-    }, [city]) // Openweather'dan city state bağlı olarak weather(description),temp_max,temp_min ve country datalarını çekme
-   
-    const values={
-        weather,
-        maxTemp,
-        minTemp,
-        country,
-    }
+    const [weather, setWeather]=useState()
+    const [data, setData]=useState();
+    const [loading, setLoading]=useState(true);
     
+    const apiKey="91a58151e7f031bbef14002c854f771a"
+   
+    //https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}
+    useEffect(() => {
+        axios(
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+          ).then(({ data }) => {
+            axios(
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=hourly,minutely&units=metric&lang=tr&appid=${apiKey}`
+            ).then(({ data }) => {
+                setData(data);
+                setWeather(data.current)
+                setLoading(false);
+                
+            });
+           
+        });
+    }, [city]); // Openweather'dan city state bağlı olarak weather(description),temp_max,temp_min ve country datalarını çekme
+
+   
+
+   const arrDay=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"]
+
+   const d = new Date();
+   let days = d.getDay();// güncel günü getDate ve getDay ile alma
+   const findDay=(day)=>{
+    return (day>6) ? arrDay[day-7] : arrDay[day]
+   }
+
+   if (loading) {
     return (
-       <WeatherContext.Provider value={values}>{children}</WeatherContext.Provider>
+        <div >
+            <h2>Yükleniyor...</h2>
+        </div>
+    );
+}
+   console.log(data) 
+    return (
+        <>
+        
+        <h5 className="selectText">{city.toUpperCase()} İÇİN 7 GÜNLÜK HAVA DURUMU TAHMİNİ</h5>
+        <div className='container'>
+        {data.daily.map((day,i)=>{
+            if(i<7){
+            return (
+                
+                <div key={day.dt} className="rows" style={i===0 ? {backgroundColor:"rgb(147, 194, 248)", width:"25%"} : {}} >
+                    <div className='col' style={i===0 ? { width:"300px"} : {}} >
+                        <span>
+                            {findDay(days+ i )}
+                        </span>
+                        <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} className="img"/>
+                        <h6>{day.weather[0].description}</h6>
+                        <div className='row'>
+                        <span className='col'> {day.temp.max}°C {day.temp.min}°C</span>
+                       
+                        </div>
+                    </div>
+                </div>
+            
+            )
+            }
+        })}
+        </div>
+    </>
     )
 }
-
-

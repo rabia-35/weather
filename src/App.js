@@ -1,5 +1,5 @@
-import  { WeatherProvider } from './contexts/WeatherData'
-import Card from './components/Card';
+import  { Weather } from './contexts/WeatherData'
+
 import './App.css';
 import { CityProvider } from './contexts/City';
 import Select from './components/Select';
@@ -8,11 +8,10 @@ function App() {
   
   return (
     <div>
-      <CityProvider>
-        <WeatherProvider>
-        <Select />
-        <Card />
-        </WeatherProvider>
+     <CityProvider>
+     <Select />
+        <Weather />
+        
       </CityProvider>
       
     </div>
@@ -20,3 +19,6 @@ function App() {
 }
 
 export default App;
+
+
+
