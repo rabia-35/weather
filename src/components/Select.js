@@ -2,14 +2,10 @@ import { useContext } from 'react'
 import { CityContext } from '../contexts/City'
 
 function Select() {
-    const {city, setCity}= useContext(CityContext)// city.js dosyasından city setCity değerlerini çekme
-
+    const {city, setCity}= useContext(CityContext)// city.js dosyasından city ve setCity değerlerini çekme
     return (
         <div >
-            
-            <input  className="input" name="city" value={city} onChange={(e)=>setCity(e.target.value)}/>
-        
-            
+            <input placeholder='şehir adı giriniz.' className="input" name="city" value={city} onChange={(e)=>setCity(e.target.value)}/>
         </div>
     )
 }

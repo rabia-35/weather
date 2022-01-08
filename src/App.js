@@ -7,7 +7,7 @@ import Select from './components/Select';
 function App() {
   
   return (
-    <div>
+    <div >
      <CityProvider>
      <Select />
         <Weather />

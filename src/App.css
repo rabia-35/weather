@@ -1,24 +1,20 @@
-
 .container {
-  display: flex; /* or inline-flex */
+  display:flex;
   justify-content:center;
-  margin-top: 1%;
+  width: auto;
 }
 .rows{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   background-color: rgb(208, 228, 243);
   border-radius: 3%;
   border-style: hidden;
-  padding:3.5%;
-  margin: 1%;
+  padding:3%;
   box-shadow: 10px 5px 5px rgb(110, 110, 110);
-  
 }
+
 .img{
   width: 100%;
 }
+
 .input{
   background-color: rgb(245, 242, 242);
   border-radius: 8px;
@@ -27,16 +23,15 @@
   font-size:large;
   margin: 4%;
   text-align: center;
-  margin-left: 9%;
-  
+  margin-left: 9%; 
 }
 
 .selectText{
   text-align: center;
   font-size:large;
   text-shadow:4px 4px 8px rgb(88, 86, 86);
-
 }
+
 span{
   font-size: smaller;
 }

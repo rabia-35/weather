@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react'
 import { CityContext } from './City'
 import axios from 'axios'
 
-
 export const  Weather=()=> {
     const {city}=useContext(CityContext) // City.js dosyasından city state çekme
     const [weather, setWeather]=useState()
@@ -10,8 +9,7 @@ export const  Weather=()=> {
     const [loading, setLoading]=useState(true);
     
     const apiKey="91a58151e7f031bbef14002c854f771a"
-   
-    //https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}
+
     useEffect(() => {
         axios(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
@@ -26,9 +24,7 @@ export const  Weather=()=> {
             });
            
         });
-    }, [city]); // Openweather'dan city state bağlı olarak weather(description),temp_max,temp_min ve country datalarını çekme
-
-   
+    }, [city]); // Openweather'dan city state bağlı olarak  dataları çekme
 
    const arrDay=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"]
 
@@ -72,7 +68,10 @@ export const  Weather=()=> {
             )
             }
         })}
+         
         </div>
+        <br/><br/>
+        <p className='selectText'>GitHub: @rabia-35</p>
     </>
     )
 }
