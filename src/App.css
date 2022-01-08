@@ -4,11 +4,14 @@
   width: auto;
 }
 .rows{
+  display:flex;
+  justify-content:center;
   background-color: rgb(208, 228, 243);
   border-radius: 3%;
   border-style: hidden;
-  padding:3%;
+  padding:2%;
   box-shadow: 10px 5px 5px rgb(110, 110, 110);
+ 
 }
 
 .img{
@@ -21,7 +24,7 @@
   height: 60px;
   width: 25%;
   font-size:large;
-  margin: 4%;
+  margin: 3%;
   text-align: center;
   margin-left: 14%; 
 }
