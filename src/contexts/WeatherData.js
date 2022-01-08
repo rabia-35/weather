@@ -70,7 +70,7 @@ export const  Weather=()=> {
         })}
          
         </div>
-        <br/><br/>
+        <br/>
         <p className='selectText'>GitHub: @rabia-35</p>
     </>
     )
