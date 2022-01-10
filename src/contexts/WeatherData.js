@@ -68,7 +68,7 @@ export const  Weather=()=> {
         {data.daily.map((day,i)=>{
             if(i<7 && i>0){
                 return (
-                    <div key={day.dt} className="col" > 
+                    <div key={day.dt} className="col-4 col-sm-2" > 
                             <h6 className='days'>
                                 {findDay(days+ i )}
                             </h6>
