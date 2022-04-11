@@ -6,6 +6,7 @@ function Select() {
     const handleSubmit=(e)=>{
         e.preventDefault();
         setCity(e.target.value)
+        setCity("");
     }
     return (
         <div >
