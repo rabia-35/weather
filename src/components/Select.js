@@ -10,7 +10,7 @@ function Select() {
     }
     return (
         <div >
-            <input placeholder='şehir adı giriniz.' className="input" name="city" value={city} onChange={handleSubmit}/>
+            <input placeholder='şehir adı giriniz.' className="input" name="city" value={city} onChange={handleSubmit()}/>
         </div>
     )
 }
