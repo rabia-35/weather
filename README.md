@@ -3,9 +3,10 @@
 
 * React
 * Axios
+* Context API
 * API
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cd59d29a-6a90-42aa-bac6-4773c7056773/deploy-status)](https://daysweather-worldcity.netlify.app/)
+* Bootstrap
+* Font Awesome
 ---
 ## Project Video
-https://user-images.githubusercontent.com/85495654/162788487-ae8f607f-3af5-4e7a-8139-e348b6f1b9a3.mp4
+[recording-2022-08-23-16-23-08.webm](https://user-images.githubusercontent.com/85495654/186169543-12e76056-e4ff-4dfe-a75d-13c91dbf323b.webm)
